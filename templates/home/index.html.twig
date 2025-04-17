@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+{% for dumpling in dumplings %}
+    <hr>
+    <p>{{ dumpling.name }}</p>
+    <p>{{ dumpling.filing }}</p>
+    <a href="{{ path('show_dumpling',{id:dumpling.id}) }}">see</a>
+    <hr>
+    {% endfor %}
+    <form method="get" action="{{ path('create_dumpling') }}">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="filing" placeholder="Filing">
+        <button type="submit">create</button>
+    </form>
+{% endblock %}
